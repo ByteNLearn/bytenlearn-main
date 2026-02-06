@@ -1,27 +1,27 @@
-import { Sora, Work_Sans } from 'next/font/google';
-import { ThemeProvider } from 'next-themes';
-import { Toaster } from 'sonner';
 import "@/styles/globals.css";
+import { Outfit, DM_Sans } from "next/font/google";
+import Layout from "@/components/layout/Layout";
 
-const sora = Sora({
-  subsets: ['latin'],
-  variable: '--font-heading',
-  display: 'swap',
+const outfit = Outfit({
+  variable: "--font-outfit",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "400", "500", "700"],
 });
 
-const workSans = Work_Sans({
-  subsets: ['latin'],
-  variable: '--font-body',
-  display: 'swap',
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "700"],
 });
 
 export default function App({ Component, pageProps }) {
   return (
-    <ThemeProvider attribute="data-theme" defaultTheme="dark" enableSystem={false}>
-      <main className={`${sora.variable} ${workSans.variable} font-body antialiased`}>
+    <div className={`${outfit.variable} ${dmSans.variable} font-body min-h-screen w-full overflow-x-hidden bg-brand-white text-brand-black dark:bg-brand-black dark:text-brand-white transition-colors duration-500`}>
+      <Layout>
         <Component {...pageProps} />
-        <Toaster position="top-right" richColors closeButton />
-      </main>
-    </ThemeProvider>
+      </Layout>
+    </div>
   );
 }

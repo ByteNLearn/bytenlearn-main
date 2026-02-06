@@ -2,54 +2,53 @@ import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
-        const { firstName, lastName, email, message } = req.body;
+        const { name, email, countryCode, phone, message, meetingDate, meetingTime } = req.body;
 
-        // Basic validation
-        if (!firstName || !lastName || !email || !message) {
-            return res.status(400).json({ error: 'Missing required fields' });
-        }
-
-        // Configure the transporter
-        // NOTE: For Gmail, you often need to use an App Password if 2FA is enabled.
+        // Create a transporter using Gmail (or another service)
+        // NOTE: For Gmail, you often need an App Password if 2FA is on.
+        // In production, use environment variables for sensitive data.
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: process.env.EMAIL_USER, // Your Gmail address (bytenlearn@gmail.com)
-                pass: process.env.EMAIL_PASS, // Your Gmail App Password
+                user: 'keshav.bytenlearn@gmail.com', // Your email
+                pass: process.env.EMAIL_PASSWORD || 'your-app-password-here', // Placeholder
             },
         });
 
+        const fullPhone = `${countryCode} ${phone}`;
+        const meetingDetails = meetingDate && meetingTime ? `${meetingDate} at ${meetingTime}` : 'Not Scheduled';
+
+        const mailOptions = {
+            from: email,
+            to: 'keshav.bytenlearn@gmail.com',
+            subject: `New Contact Request: ${name}`,
+            html: `
+                <h2>New Contact Request</h2>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Phone:</strong> ${fullPhone}</p>
+                <hr />
+                <h3>Message</h3>
+                <p>${message}</p>
+                <hr />
+                <h3>Requested Meeting</h3>
+                <p><strong>Date & Time:</strong> ${meetingDetails}</p>
+            `,
+        };
+
         try {
-            // Email content
-            const mailOptions = {
-                from: `"${firstName} ${lastName}" <${email}>`, // Sender info (Note: Gmail often overrides the 'from' header to be the authenticated user for security, but puts this in Reply-To)
-                to: 'bytenlearn@gmail.com', // Destination email
-                replyTo: email,
-                subject: `New Contact Form Submission from ${firstName} ${lastName}`,
-                text: `
-          Name: ${firstName} ${lastName}
-          Email: ${email}
-          
-          Message:
-          ${message}
-        `,
-                html: `
-          <h3>New Contact Form Submission</h3>
-          <p><strong>Name:</strong> ${firstName} ${lastName}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Message:</strong></p>
-          <p>${message.replace(/\n/g, '<br>')}</p>
-        `,
-            };
+            if (!process.env.EMAIL_PASSWORD) {
+                console.log("Mock Contact Email Sent:", mailOptions);
+                return res.status(200).json({ message: 'Mock email sent successfully' });
+            }
 
             await transporter.sendMail(mailOptions);
-            return res.status(200).json({ message: 'Email sent successfully' });
+            res.status(200).json({ message: 'Message sent successfully' });
         } catch (error) {
-            console.error('Error sending email:', error);
-            return res.status(500).json({ error: 'Failed to send email' });
+            console.error('Contact email send error:', error);
+            res.status(500).json({ error: 'Failed to send message' });
         }
     } else {
-        res.setHeader('Allow', ['POST']);
-        res.status(405).end(`Method ${req.method} Not Allowed`);
+        res.status(405).json({ message: 'Method not allowed' });
     }
 }
