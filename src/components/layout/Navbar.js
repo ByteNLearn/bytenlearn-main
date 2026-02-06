@@ -25,9 +25,11 @@ export default function Navbar() {
     return (
         <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'py-4 bg-brand-white/80 dark:bg-brand-black/80 backdrop-blur-md border-b border-brand-black/10 dark:border-brand-white/10' : 'py-8 bg-transparent'}`}>
             <div className="w-full md:container md:mx-auto px-6 flex justify-between items-center">
-                <Link href="/" className="text-2xl font-display font-bold uppercase tracking-tighter z-50">
-                    {/* mix-blend-difference */}
-                    Byten<span className="text-brand-orange">learn</span>
+                <Link href="/" className="flex items-center gap-2 text-2xl font-display font-bold uppercase tracking-tighter z-50">
+                    <img src="/images/logo.png" alt="Bytenlearn Logo" className="h-12 w-12 rounded-full object-cover" />
+                    <div>
+                        Byten<span className="text-brand-orange">learn</span>
+                    </div>
                 </Link>
 
                 {/* Desktop Menu */}

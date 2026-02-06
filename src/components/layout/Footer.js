@@ -32,6 +32,7 @@ export default function Footer() {
                             <li><a href="#" className="hover:text-brand-orange transition-colors">LinkedIn</a></li>
                             <li><a href="#" className="hover:text-brand-orange transition-colors">Twitter / X</a></li>
                             <li><a href="#" className="hover:text-brand-orange transition-colors">Instagram</a></li>
+                            <li><a href="#" className="hover:text-brand-orange transition-colors">Facebook</a></li>
                             <li><a href="mailto:contact@bytenlearn.com" className="hover:text-brand-orange transition-colors">Email Us</a></li>
                         </ul>
                     </div>
