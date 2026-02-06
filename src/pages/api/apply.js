@@ -9,9 +9,11 @@ export default async function handler(req, res) {
             return res.status(500).json({ message: 'Server configuration error: Missing email credentials.' });
         }
 
-        // Create a transporter using your email service
+        // Create a transporter using robust SMTP settings for production
         const transporter = nodemailer.createTransport({
-            service: 'gmail',
+            host: 'smtp.gmail.com',
+            port: 465,
+            secure: true, // use SSL
             auth: {
                 user: process.env.EMAIL_USER,
                 pass: process.env.EMAIL_PASS,

@@ -3,11 +3,13 @@ import { Html, Head, Main, NextScript } from "next/document";
 export default function Document() {
   return (
     <Html lang="en">
-      <Head />
+      <Head>
+        <link rel="icon" href="/images/logo-circle.png" type="image/png" sizes="any" />
+      </Head>
       <body className="antialiased">
         <Main />
         <NextScript />
       </body>
-    </Html>
+    </Html >
   );
 }
