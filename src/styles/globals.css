@@ -93,3 +93,60 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Force Prose Headings to Brand Orange and Increase Size */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  color: var(--color-brand-orange) !important;
+  font-weight: 700 !important;
+  line-height: 1.1 !important;
+}
+
+.prose h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem) !important;
+  margin-top: 2.5em !important;
+  margin-bottom: 0.8em !important;
+}
+
+.prose h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem) !important;
+  margin-top: 2em !important;
+  margin-bottom: 0.6em !important;
+}
+
+.prose h3 {
+  font-size: clamp(1.75rem, 3vw, 2.75rem) !important;
+  margin-top: 1.6em !important;
+  margin-bottom: 0.6em !important;
+}
+
+.prose h4 {
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem) !important;
+  margin-top: 1.5em !important;
+  margin-bottom: 0.5em !important;
+}
+
+.prose h5 {
+  font-size: clamp(1.25rem, 2vw, 1.75rem) !important;
+  margin-top: 1.5em !important;
+  margin-bottom: 0.5em !important;
+}
+
+.prose h6 {
+  font-size: clamp(1.1rem, 1.5vw, 1.5rem) !important;
+  margin-top: 1.5em !important;
+  margin-bottom: 0.5em !important;
+}
+
+/* Increase Paragraph Size */
+.prose p,
+.prose ul li,
+.prose ol li {
+  font-size: clamp(1.25rem, 2vw, 1.3rem) !important;
+  line-height: 1.8 !important;
+  margin-bottom: 1.6em !important;
+}

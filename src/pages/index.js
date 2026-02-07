@@ -67,10 +67,10 @@ export default function Home() {
       <Skills />
       <HappyClients />
       <Services />
+      <Blog />
       <InternTestimonials />
       <Internships />
       <Projects />
-      <Blog />
       <Contact />
     </>
   );

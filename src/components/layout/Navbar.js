@@ -1,16 +1,17 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Services', href: '#services' },
-    { name: 'Internships', href: '#internships' },
-    { name: 'Projects', href: '#projects' },
+    { name: 'About', href: '/about' },
+    { name: 'Skills', href: '/skills' },
+    { name: 'Services', href: '/services' },
+    { name: 'Internships', href: '/internships' },
+    { name: 'Projects', href: '/projects' },
     { name: 'Blog', href: '/blog' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Contact', href: '/contact' },
 ];
 
 export default function Navbar() {
@@ -27,7 +28,7 @@ export default function Navbar() {
         <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'py-4 bg-brand-white/80 dark:bg-brand-black/80 backdrop-blur-md border-b border-brand-black/10 dark:border-brand-white/10' : 'py-8 bg-transparent'}`}>
             <div className="w-full md:container md:mx-auto px-6 flex justify-between items-center">
                 <Link href="/" className="flex items-center gap-2 text-2xl font-display font-bold uppercase tracking-tighter z-50">
-                    <img src="/images/logo.png" alt="Bytenlearn Logo" className="h-12 w-12 rounded-full object-cover" />
+                    <Image src="/images/logo.png" alt="Bytenlearn Logo" width={48} height={48} className="rounded-full object-cover" />
                     <div>
                         Byten<span className="text-brand-orange">learn</span>
                     </div>

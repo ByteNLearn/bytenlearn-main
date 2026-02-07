@@ -117,7 +117,7 @@ export default function Internships() {
     return (
         <section id="internships" className="py-20 md:py-32 bg-brand-white dark:bg-brand-black transition-colors duration-500 relative">
             <div className="w-full md:container md:mx-auto px-0 md:px-6">
-                <h2 className="text-4xl md:text-6xl font-display font-bold mb-16 text-center text-brand-black dark:text-brand-white px-6 md:px-0">
+                <h2 className="text-4xl md:text-6xl font-display font-bold mb-16 text-end text-brand-black dark:text-brand-white px-6 md:px-0">
                     Join the <span className="text-brand-orange">Revolution</span>.
                 </h2>
 

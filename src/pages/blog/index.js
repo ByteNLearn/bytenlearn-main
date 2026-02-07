@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { blogs } from '@/data/blogs';
 
@@ -40,8 +41,14 @@ export default function BlogIndex() {
                                 transition={{ delay: index * 0.1 + 0.2 }}
                                 className="group flex flex-col h-full bg-brand-black/5 dark:bg-brand-white/5 border border-brand-black/10 dark:border-brand-white/10 rounded-3xl overflow-hidden hover:border-brand-orange/50 transition-colors"
                             >
-                                <div className="h-48 w-full bg-gradient-to-br from-brand-black/10 to-brand-black/5 dark:from-brand-white/10 dark:to-brand-white/5 relative overflow-hidden">
-                                    <div className="absolute inset-0 bg-brand-orange/10 transform scale-100 group-hover:scale-110 transition-transform duration-700" />
+                                <div className="h-48 w-full relative overflow-hidden">
+                                    <Image
+                                        src={blog.image}
+                                        alt={blog.title}
+                                        fill
+                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                    />
+                                    <div className="absolute inset-0 bg-brand-black/20 group-hover:bg-brand-black/10 transition-colors duration-500" />
                                     <div className="absolute top-4 left-4">
                                         <span className="px-3 py-1 bg-brand-white dark:bg-brand-black text-xs font-bold uppercase tracking-widest rounded-full shadow-lg text-brand-black dark:text-brand-white">
                                             {blog.category}
