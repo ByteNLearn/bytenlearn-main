@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bytenlearn.in/sitemap.xml

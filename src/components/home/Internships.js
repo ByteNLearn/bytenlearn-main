@@ -122,12 +122,12 @@ export default function Internships() {
                 </h2>
 
                 {/* 1. Domains Tabs */}
-                <div className="flex flex-wrap justify-center gap-4 mb-12 px-4 md:px-0">
+                <div className="flex flex-nowrap overflow-x-auto md:flex-wrap justify-start md:justify-center gap-4 mb-12 px-4 md:px-0 pb-2">
                     {Object.keys(domainInfo).map((domain) => (
                         <button
                             key={domain}
                             onClick={() => setActiveDomain(domain)}
-                            className={`px-6 py-3 rounded-full text-sm md:text-base font-bold uppercase tracking-widest transition-all duration-300 border ${activeDomain === domain
+                            className={`px-6 py-3 rounded-full text-sm md:text-base font-bold uppercase tracking-widest transition-all duration-300 whitespace-nowrap border ${activeDomain === domain
                                 ? "bg-brand-orange text-white border-brand-orange scale-105 shadow-lg shadow-brand-orange/30"
                                 : "bg-transparent text-brand-black/60 dark:text-brand-white/60 border-brand-black/10 dark:border-brand-white/10 hover:border-brand-orange hover:text-brand-orange"
                                 }`}

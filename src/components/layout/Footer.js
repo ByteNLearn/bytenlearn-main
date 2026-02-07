@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Footer() {
     return (
         <footer className="bg-brand-black text-brand-white pt-24 pb-12 relative overflow-hidden">
@@ -21,8 +23,9 @@ export default function Footer() {
                             <li><a href="#" className="hover:text-brand-orange transition-colors">Home</a></li>
                             <li><a href="#about" className="hover:text-brand-orange transition-colors">About Us</a></li>
                             <li><a href="#skills" className="hover:text-brand-orange transition-colors">Skills</a></li>
-                            <li><a href="#services" className="hover:text-brand-orange transition-colors">Services</a></li>
-                            <li><a href="#projects" className="hover:text-brand-orange transition-colors">Projects</a></li>
+                            <li><Link href="/#services" className="hover:text-brand-orange transition-colors">Services</Link></li>
+                            <li><Link href="/#projects" className="hover:text-brand-orange transition-colors">Projects</Link></li>
+                            <li><Link href="/blog" className="hover:text-brand-orange transition-colors">Blog</Link></li>
                         </ul>
                     </div>
 
@@ -39,7 +42,7 @@ export default function Footer() {
                 </div>
 
                 <div className="border-t border-brand-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-brand-white/40 font-body">
-                    <p>&copy; {new Date().getFullYear()} Bytenlearn Corp. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} ByteNLearn Corp. All rights reserved.</p>
                     <div className="flex gap-6 mt-4 md:mt-0">
                         <a href="#" className="hover:text-brand-white transition-colors">Privacy Policy</a>
                         <a href="#" className="hover:text-brand-white transition-colors">Terms of Service</a>
