@@ -65,7 +65,7 @@ export default function Hero() {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.4, duration: 0.8 }}
                 >
-                    Building the digital future with <span className="text-brand-orange font-bold">precision</span> and <span className="text-brand-pink font-bold">passion</span>.
+                    Building the digital future with <span className="text-brand-orange font-bold">precision</span> and <span className="text-brand-pink font-bold">passion</span>. Rated as the <b className="text-brand-black dark:text-brand-white">Best Website & App Development Company in Moradabad</b>.
                 </motion.p>
 
                 <motion.div

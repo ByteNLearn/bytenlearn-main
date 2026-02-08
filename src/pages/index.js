@@ -15,24 +15,24 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>ByteNLearn | Premium Corporate Training & Web Development</title>
-        <meta name="description" content="ByteNLearn offers premium corporate training, internships in MERN Stack, Django, Data Science, and custom web development services. Join the revolution in tech education." />
-        <meta name="keywords" content="ByteNLearn, ByteN Learn, Corporate Training, Web Development, Internships, MERN Stack, Python Django, Data Science, Cyber Security" />
+        <title>ByteNLearn | Best Website, App & Software Development Company in Moradabad</title>
+        <meta name="description" content="Looking for the best website and app development company in Moradabad? ByteNLearn is the No.1 software development company in Moradabad offering premium corporate training, interns, and custom web solutions." />
+        <meta name="keywords" content="Best Website Development Company in Moradabad, Top App Development Company Moradabad, No.1 Software Development Company in Moradabad, Web Design Moradabad, ByteNLearn, Corporate Training, MERN Stack, Data Science" />
         <meta name="author" content="ByteNLearn" />
         <link rel="canonical" href="https://bytenlearn.in" />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://bytenlearn.in/" />
-        <meta property="og:title" content="ByteNLearn | Premium Corporate Training & Web Development" />
-        <meta property="og:description" content="ByteNLearn offers premium corporate training, internships, and web development services. Join the revolution in tech education." />
+        <meta property="og:title" content="ByteNLearn | Best Website & Software Development Company in Moradabad" />
+        <meta property="og:description" content="ByteNLearn is the No.1 website and app development company in Moradabad. We deliver premium software solutions and corporate training." />
         <meta property="og:image" content="https://bytenlearn.in/images/logo.png" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://bytenlearn.in/" />
-        <meta property="twitter:title" content="ByteNLearn | Premium Corporate Training & Web Development" />
-        <meta property="twitter:description" content="ByteNLearn offers premium corporate training, internships, and web development services. Join the revolution in tech education." />
+        <meta property="twitter:title" content="ByteNLearn | Best Website & Software Development Company in Moradabad" />
+        <meta property="twitter:description" content="ByteNLearn is the No.1 website and app development company in Moradabad. We deliver premium software solutions." />
         <meta property="twitter:image" content="https://bytenlearn.in/images/logo.png" />
       </Head>
 
@@ -43,21 +43,40 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "ByteNLearn",
+            "image": "https://bytenlearn.in/images/logo.png",
             "url": "https://bytenlearn.in",
-            "logo": "https://bytenlearn.in/images/logo.png",
+            "telephone": "+91-9876543210",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Moradabad",
+              "addressRegion": "Uttar Pradesh",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "28.8386",
+              "longitude": "78.7733" 
+            },
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+              ],
+              "opens": "09:00",
+              "closes": "18:00"
+            },
             "sameAs": [
               "https://www.facebook.com/bytenlearn",
               "https://www.instagram.com/bytenlearn",
               "https://www.linkedin.com/company/bytenlearn"
             ],
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "+91-9876543210",
-              "contactType": "customer service",
-              "areaServed": "IN",
-              "availableLanguage": ["en", "hi"]
-            },
-            "description": "ByteNLearn provides top-tier corporate training, internships, and web development services."
+            "priceRange": "$$",
+            "description": "ByteNLearn is the No.1 software, website, and app development company in Moradabad."
           }
         `}
       </Script>

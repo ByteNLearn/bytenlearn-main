@@ -12,7 +12,7 @@ export default function BlogIndex() {
     const [selectedCategory, setSelectedCategory] = useState("All");
     const itemsPerPage = 9;
 
-    // Get unique categories
+    // Get unique categories from the blogs data
     const categories = ["All", ...new Set(blogs.map(blog => blog.category))];
 
     useEffect(() => {
