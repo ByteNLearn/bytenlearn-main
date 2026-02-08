@@ -6,7 +6,7 @@ import Skills from "@/components/home/Skills";
 import Services from "@/components/home/Services";
 import Internships from "@/components/home/Internships";
 import InternTestimonials from "@/components/home/InternTestimonials";
-import Projects from "@/components/home/Projects";
+import ProjectsGrid from "@/components/projects/ProjectsGrid";
 import HappyClients from "@/components/home/HappyClients";
 import Blog from "@/components/home/Blog";
 import Contact from "@/components/home/Contact";
@@ -89,7 +89,7 @@ export default function Home() {
       <Blog />
       <InternTestimonials />
       <Internships />
-      <Projects />
+      <ProjectsGrid limit={4} />
       <Contact />
     </>
   );

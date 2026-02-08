@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Projects from '@/components/home/Projects';
+import ProjectsGrid from '@/components/projects/ProjectsGrid';
 import HappyClients from '@/components/home/HappyClients';
 
 export default function ProjectsPage() {
@@ -9,10 +9,10 @@ export default function ProjectsPage() {
                 <title>Projects & Portfolio | ByteNLearn</title>
                 <meta name="description" content="View our latest projects in web development, app development, and data visualization." />
             </Head>
-            <div className="pt-20">
-                <Projects />
+            <main>
+                <ProjectsGrid />
                 <HappyClients />
-            </div>
+            </main>
         </>
     );
 }
