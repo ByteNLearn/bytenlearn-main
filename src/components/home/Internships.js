@@ -63,9 +63,9 @@ export default function Internships() {
         countryCode: '+91', // Default India
         phone: '',
         domain: 'MERN Stack', // Default
-        college: '',
-        course: '',
-        portfolio: ''
+        // college: '',
+        // course: '',
+        // portfolio: ''
     });
 
     const handleInputChange = (e) => {
@@ -328,7 +328,7 @@ export default function Internships() {
                                         </div>
                                     </div>
 
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
                                             <label className="block text-xs font-bold uppercase tracking-widest text-brand-black/60 dark:text-brand-white/60 mb-2">College Name *</label>
                                             <input
@@ -353,9 +353,9 @@ export default function Internships() {
                                                 required
                                             />
                                         </div>
-                                    </div>
+                                    </div> */}
 
-                                    <div>
+                                    {/* <div>
                                         <label className="block text-xs font-bold uppercase tracking-widest text-brand-black/60 dark:text-brand-white/60 mb-2">Portfolio Link (Optional)</label>
                                         <input
                                             type="url"
@@ -365,7 +365,7 @@ export default function Internships() {
                                             className="w-full bg-brand-black/5 dark:bg-brand-white/5 border border-brand-black/10 dark:border-brand-white/10 rounded-xl px-4 py-3 text-brand-black dark:text-brand-white focus:outline-none focus:border-brand-orange transition-colors"
                                             placeholder="https://github.com/..."
                                         />
-                                    </div>
+                                    </div> */}
 
                                     <button
                                         type="submit"

@@ -29,14 +29,31 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    <div className="md:col-span-3">
-                        <h4 className="font-display font-bold text-lg mb-6 text-brand-pink">Connect</h4>
+                    <div className="md:col-span-4">
+                        <h4 className="font-display font-bold text-lg mb-6 text-brand-pink">Contact Us</h4>
                         <ul className="space-y-4 font-body text-brand-white/80">
-                            <li><a href="#" className="hover:text-brand-orange transition-colors">LinkedIn</a></li>
-                            <li><a href="#" className="hover:text-brand-orange transition-colors">Twitter / X</a></li>
-                            <li><a href="#" className="hover:text-brand-orange transition-colors">Instagram</a></li>
-                            <li><a href="#" className="hover:text-brand-orange transition-colors">Facebook</a></li>
-                            <li><Link href="/contact" className="hover:text-brand-orange transition-colors">Contact Us</Link></li>
+                            <li>
+                                <a href="tel:+919837033948" className="hover:text-brand-orange transition-colors flex items-center gap-2">
+                                    <span>📞</span> +91 9837033948
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tel:+918077897867" className="hover:text-brand-orange transition-colors flex items-center gap-2">
+                                    <span>📞</span> +91 8077897867
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:bytenlearn@gmail.com?subject=Enquiry from Website" className="hover:text-brand-orange transition-colors flex items-center gap-2">
+                                    <span>✉️</span> bytenlearn@gmail.com
+                                </a>
+                            </li>
+                            <li>
+                                <div className="flex gap-4 mt-4">
+                                    <a href="#" className="hover:text-brand-orange transition-colors">LinkedIn</a>
+                                    <a href="#" className="hover:text-brand-orange transition-colors">Twitter</a>
+                                    <a href="#" className="hover:text-brand-orange transition-colors">Instagram</a>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>

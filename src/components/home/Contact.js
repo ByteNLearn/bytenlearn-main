@@ -64,6 +64,19 @@ export default function Contact() {
                     Let's Build <br /> <span className="text-brand-orange">Something Giant</span>.
                 </h2>
 
+                <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-12 text-center md:text-left bg-brand-black/5 dark:bg-brand-white/5 p-8 rounded-3xl border border-brand-black/10 dark:border-brand-white/10 backdrop-blur-sm">
+                    <div className="flex flex-col gap-2">
+                        <p className="text-sm font-bold uppercase tracking-widest opacity-60">Call Us Directly</p>
+                        <a href="tel:+919837033948" className="text-xl md:text-2xl font-bold hover:text-brand-orange transition-colors">+91 9837033948</a>
+                        <a href="tel:+918077897867" className="text-xl md:text-2xl font-bold hover:text-brand-orange transition-colors">+91 8077897867</a>
+                    </div>
+                    <div className="hidden md:block w-px h-16 bg-brand-black/20 dark:bg-brand-white/20"></div>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-sm font-bold uppercase tracking-widest opacity-60">Email Us</p>
+                        <a href="mailto:bytenlearn@gmail.com?subject=Enquiry from Website" className="text-xl md:text-2xl font-bold hover:text-brand-orange transition-colors underline decoration-brand-orange/50 underline-offset-4">bytenlearn@gmail.com</a>
+                    </div>
+                </div>
+
                 {status === 'success' ? (
                     <div className="p-8 bg-green-500/10 border border-green-500 rounded-3xl text-center mt-16">
                         <h4 className="text-2xl font-bold text-green-500 mb-4">Message Sent!</h4>

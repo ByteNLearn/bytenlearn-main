@@ -2,7 +2,7 @@ import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
-        const { name, email, countryCode, phone, domain, college, course, portfolio, role } = req.body;
+        const { name, email, countryCode, phone, domain, role } = req.body;
 
         if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
             console.error('Missing environment variables: EMAIL_USER or EMAIL_PASS');
@@ -37,9 +37,6 @@ export default async function handler(req, res) {
                 Name: ${name}
                 Email: ${email}
                 Phone: ${fullPhone}
-                College: ${college}
-                Course: ${course}
-                Portfolio: ${portfolio || 'Not Provided'}
             `,
             html: `
                 <h2>New Internship Application</h2>
@@ -50,9 +47,6 @@ export default async function handler(req, res) {
                 <p><strong>Name:</strong> ${name}</p>
                 <p><strong>Email:</strong> ${email}</p>
                 <p><strong>Phone:</strong> ${fullPhone}</p>
-                <p><strong>College:</strong> ${college}</p>
-                <p><strong>Course:</strong> ${course}</p>
-                <p><strong>Portfolio:</strong> ${portfolio ? `<a href="${portfolio}">${portfolio}</a>` : 'Not Provided'}</p>
             `,
         };
 
