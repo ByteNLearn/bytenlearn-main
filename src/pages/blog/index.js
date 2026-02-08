@@ -52,8 +52,22 @@ export default function BlogIndex() {
     return (
         <>
             <Head>
-                <title>Blog | ByteNLearn</title>
-                <meta name="description" content="Insights, tutorials, and industry news from the ByteNLearn team." />
+                <title>Blog | ByteNLearn - Insights & Tutorials</title>
+                <meta name="description" content="Explore insights, tutorials, and industry news from the ByteNLearn team. Stay updated on tech trends, corporate training, and digital transformation." />
+                <link rel="canonical" href="https://bytenlearn.in/blog" />
+
+                {/* Open Graph / Facebook */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://bytenlearn.in/blog" />
+                <meta property="og:title" content="Blog | ByteNLearn - Insights & Tutorials" />
+                <meta property="og:description" content="Explore insights, tutorials, and industry news from the ByteNLearn team." />
+                <meta property="og:image" content="https://bytenlearn.in/images/logo.png" /> {/* ideally a specific blog index image */}
+
+                {/* Twitter */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Blog | ByteNLearn - Insights & Tutorials" />
+                <meta name="twitter:description" content="Explore insights, tutorials, and industry news from the ByteNLearn team." />
+                <meta name="twitter:image" content="https://bytenlearn.in/images/logo.png" />
             </Head>
 
             <section className="pt-32 pb-20 md:pt-48 md:pb-32 bg-brand-white dark:bg-brand-black min-h-screen relative overflow-hidden">

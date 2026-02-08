@@ -26,14 +26,14 @@ export default function Home() {
         <meta property="og:url" content="https://bytenlearn.in/" />
         <meta property="og:title" content="ByteNLearn | Premium Corporate Training & Web Development" />
         <meta property="og:description" content="ByteNLearn offers premium corporate training, internships, and web development services. Join the revolution in tech education." />
-        <meta property="og:image" content="https://bytenlearn.in/images/og-image.jpg" />
+        <meta property="og:image" content="https://bytenlearn.in/images/logo.png" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://bytenlearn.in/" />
         <meta property="twitter:title" content="ByteNLearn | Premium Corporate Training & Web Development" />
         <meta property="twitter:description" content="ByteNLearn offers premium corporate training, internships, and web development services. Join the revolution in tech education." />
-        <meta property="twitter:image" content="https://bytenlearn.in/images/og-image.jpg" />
+        <meta property="twitter:image" content="https://bytenlearn.in/images/logo.png" />
       </Head>
 
       {/* Structured Data for SEO */}

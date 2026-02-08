@@ -20,6 +20,11 @@ const services = [
         title: "Maintenance & Support",
         description: "Keep your digital assets secure and up-to-date. We provide ongoing support, security monitoring, and performance optimization.",
         highlight: "24/7 Security"
+    },
+    {
+        title: "SEO Optimization",
+        description: "Improve your organic search visibility and drive qualified traffic. We use data-driven strategies to boost your rankings and reach your target audience effectively.",
+        highlight: "Organic Growth"
     }
 ];
 
