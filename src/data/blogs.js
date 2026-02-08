@@ -1,5 +1,56 @@
 export const blogs = [
     {
+        id: 9,
+        slug: "generative-ai-education-revolution",
+        title: "Revolutionizing Education with Generative AI",
+        excerpt: "Generative AI is not just a tool; it's a co-pilot for educators and learners alike. Explore how it's personalizing the learning journey.",
+        date: "2026-02-08",
+        author: "ByteNLearn Team",
+        category: "EdTech",
+        image: "https://picsum.photos/seed/ai-edu/800/600",
+        content: `
+            <p>Generative AI is transforming how we teach and learn. By analyzing individual learning styles and pacing, AI can create custom tailored educational experiences that were previously impossible at scale.</p>
+            <h3>Personalized Learning Paths</h3>
+            <p>No two students learn exactly the same way. GenAI algorithms adapt in real-time to a student's performance, offering extra practice in weak areas while accelerating through mastered concepts.</p>
+            <h3>Automating Content Creation</h3>
+            <p>Teachers can now generate quizzes, lesson plans, and interactive summaries in seconds, freeing up valuable time to focus on mentorship and student engagement.</p>
+        `
+    },
+    {
+        id: 10,
+        slug: "soft-skills-in-tech",
+        title: "Soft Skills: The Unexpected Currency of the Tech World",
+        excerpt: "In a world of automation and AI, human skills like empathy, communication, and leadership are becoming more valuable than ever.",
+        date: "2026-02-08",
+        author: "Career Coach",
+        category: "Career Development",
+        image: "https://picsum.photos/seed/soft-skills/800/600",
+        content: `
+            <p>While technical skills might get you the interview, it's often your soft skills that land you the job—and the promotion. As AI handles more routine coding tasks, the human element becomes a premium asset.</p>
+            <h3>Communication is Key</h3>
+            <p>The ability to explain complex technical concepts to non-technical stakeholders is a superpower. Great developers write clean code; exceptional developers bridge the gap between code and business value.</p>
+            <h3>Emotional Intelligence</h3>
+            <p>Understanding team dynamics, managing stress, and leading with empathy are critical for senior roles. Technical prowess alone is no longer enough to lead modern agile teams.</p>
+        `
+    },
+    {
+        id: 11,
+        slug: "cloud-native-architecture",
+        title: "Cloud-Native: Building Scalable Applications for Tomorrow",
+        excerpt: "Why moving to a cloud-native architecture is essential for modern businesses and how to get started with Kubernetes and microservices.",
+        date: "2026-02-08",
+        author: "DevOps Engineer",
+        category: "Development",
+        image: "https://picsum.photos/seed/cloud-native/800/600",
+        content: `
+            <p>Cloud-native is more than just running on the cloud; it's about how applications are built and deployed. It enables organizations to build and run scalable applications in modern, dynamic environments.</p>
+            <h3>Microservices vs Monoliths</h3>
+            <p>Breaking down monolithic applications into smaller, independent microservices allows for faster deployment cycles, better fault isolation, and the ability to scale individual components as needed.</p>
+            <h3>The DevOps Culture</h3>
+            <p>Cloud-native goes hand-in-hand with DevOps. Automated CI/CD pipelines, containerization with Docker, and orchestration with Kubernetes are the pillars of this modern approach.</p>
+        `
+    },
+    {
         id: 1,
         slug: "future-of-corporate-training",
         title: "The Future of Corporate Training: Beyond PowerPoint",

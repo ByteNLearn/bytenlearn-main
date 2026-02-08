@@ -5,7 +5,7 @@ import { blogs } from '@/data/blogs';
 
 export default function Blog() {
     // Show only the latest 3 blogs on the home page
-    const latestBlogs = blogs.slice(0, 6);
+    const latestBlogs = blogs.slice(0, 3);
 
     return (
         <section id="blog" className="py-20 md:py-32 bg-brand-white dark:bg-brand-black transition-colors duration-500 relative overflow-hidden">

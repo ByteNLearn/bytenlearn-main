@@ -2,9 +2,53 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { blogs } from '@/data/blogs';
 
 export default function BlogIndex() {
+    const router = useRouter();
+    const [currentPage, setCurrentPage] = useState(1);
+    const [selectedCategory, setSelectedCategory] = useState("All");
+    const itemsPerPage = 9;
+
+    // Get unique categories
+    const categories = ["All", ...new Set(blogs.map(blog => blog.category))];
+
+    useEffect(() => {
+        if (router.isReady && router.query.category) {
+            const categoryFromUrl = router.query.category;
+            if (categories.includes(categoryFromUrl)) {
+                setSelectedCategory(categoryFromUrl);
+            }
+        }
+    }, [router.isReady, router.query.category]);
+
+    // Filter blogs based on category
+    const filteredBlogs = selectedCategory === "All"
+        ? blogs
+        : blogs.filter(blog => blog.category === selectedCategory);
+
+    const totalPages = Math.ceil(filteredBlogs.length / itemsPerPage);
+    const paginatedBlogs = filteredBlogs.slice(
+        (currentPage - 1) * itemsPerPage,
+        currentPage * itemsPerPage
+    );
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    const handleCategoryChange = (category) => {
+        setSelectedCategory(category);
+        setCurrentPage(1); // Reset to first page
+
+        // Update URL without refreshing
+        const query = category === "All" ? {} : { category };
+        router.push({ pathname: '/blog', query }, undefined, { shallow: true });
+    };
+
     return (
         <>
             <Head>
@@ -32,10 +76,32 @@ export default function BlogIndex() {
                         </motion.p>
                     </div>
 
+                    {/* Category Filter */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="flex flex-nowrap overflow-x-auto gap-4 mb-16 pb-4 justify-start md:justify-center md:flex-wrap scrollbar-hide"
+                    >
+                        {categories.map((category) => (
+                            <button
+                                key={category}
+                                onClick={() => handleCategoryChange(category)}
+                                className={`px-6 py-2 rounded-full font-bold uppercase tracking-widest text-xs transition-all border whitespace-nowrap flex-shrink-0 ${selectedCategory === category
+                                    ? 'bg-brand-orange border-brand-orange text-white'
+                                    : 'bg-transparent border-brand-black/20 dark:border-brand-white/20 text-brand-black dark:text-brand-white hover:border-brand-orange hover:text-brand-orange'
+                                    }`}
+                            >
+                                {category}
+                            </button>
+                        ))}
+                    </motion.div>
+
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {blogs.map((blog, index) => (
+                        {paginatedBlogs.map((blog, index) => (
                             <motion.div
                                 key={blog.id}
+                                layout
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1 + 0.2 }}
@@ -81,6 +147,48 @@ export default function BlogIndex() {
                             </motion.div>
                         ))}
                     </div>
+
+                    {filteredBlogs.length === 0 && (
+                        <div className="text-center py-20 opacity-50">
+                            <h3 className="text-2xl font-display font-bold">No articles found in this category.</h3>
+                        </div>
+                    )}
+
+                    {/* Pagination Controls */}
+                    {totalPages > 1 && (
+                        <div className="flex justify-center items-center mt-16 gap-4">
+                            <button
+                                onClick={() => handlePageChange(currentPage - 1)}
+                                disabled={currentPage === 1}
+                                className="px-6 py-3 border border-brand-black/20 dark:border-brand-white/20 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-brand-black hover:text-brand-white dark:hover:bg-brand-white dark:hover:text-brand-black disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                            >
+                                Previous
+                            </button>
+
+                            <div className="flex gap-2">
+                                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                                    <button
+                                        key={page}
+                                        onClick={() => handlePageChange(page)}
+                                        className={`w-10 h-10 rounded-full font-bold flex items-center justify-center transition-all ${currentPage === page
+                                            ? 'bg-brand-orange text-white'
+                                            : 'text-brand-black dark:text-brand-white hover:bg-brand-black/10 dark:hover:bg-brand-white/10'
+                                            }`}
+                                    >
+                                        {page}
+                                    </button>
+                                ))}
+                            </div>
+
+                            <button
+                                onClick={() => handlePageChange(currentPage + 1)}
+                                disabled={currentPage === totalPages}
+                                className="px-6 py-3 border border-brand-black/20 dark:border-brand-white/20 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-brand-black hover:text-brand-white dark:hover:bg-brand-white dark:hover:text-brand-black disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                            >
+                                Next
+                            </button>
+                        </div>
+                    )}
                 </div>
             </section>
         </>
