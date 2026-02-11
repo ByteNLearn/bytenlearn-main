@@ -1,15 +1,18 @@
 import Head from "next/head";
 import Script from "next/script";
+import dynamic from "next/dynamic";
 import Hero from "@/components/home/Hero";
 import About from "@/components/home/About";
-import Skills from "@/components/home/Skills";
-import Services from "@/components/home/Services";
-import Internships from "@/components/home/Internships";
-import InternTestimonials from "@/components/home/InternTestimonials";
-import ProjectsGrid from "@/components/projects/ProjectsGrid";
-import HappyClients from "@/components/home/HappyClients";
-import Blog from "@/components/home/Blog";
-import Contact from "@/components/home/Contact";
+
+// Lazy-load below-the-fold components to reduce initial bundle size
+const Skills = dynamic(() => import("@/components/home/Skills"));
+const Services = dynamic(() => import("@/components/home/Services"));
+const Internships = dynamic(() => import("@/components/home/Internships"));
+const InternTestimonials = dynamic(() => import("@/components/home/InternTestimonials"));
+const ProjectsGrid = dynamic(() => import("@/components/projects/ProjectsGrid"));
+const HappyClients = dynamic(() => import("@/components/home/HappyClients"));
+const Blog = dynamic(() => import("@/components/home/Blog"));
+const Contact = dynamic(() => import("@/components/home/Contact"));
 
 export default function Home() {
   return (
