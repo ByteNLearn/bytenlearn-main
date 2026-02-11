@@ -75,6 +75,30 @@ export default function BlogPost({ blog, relatedBlogs }) {
                         })
                     }}
                 />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "BreadcrumbList",
+                            "itemListElement": [{
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://bytenlearn.in"
+                            }, {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Blog",
+                                "item": "https://bytenlearn.in/blog"
+                            }, {
+                                "@type": "ListItem",
+                                "position": 3,
+                                "name": blog.title
+                            }]
+                        })
+                    }}
+                />
             </Head>
             <div className="w-full h-[200px] md:h-[400px] relative z-10 shadow-2xl mt-10">
                 <Image

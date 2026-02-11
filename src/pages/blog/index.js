@@ -68,6 +68,35 @@ export default function BlogIndex() {
                 <meta name="twitter:title" content="Blog | ByteNLearn - Insights & Tutorials" />
                 <meta name="twitter:description" content="Explore insights, tutorials, and industry news from the ByteNLearn team." />
                 <meta name="twitter:image" content="https://bytenlearn.in/images/logo.png" />
+                {/* Structured Data */}
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify([
+                            {
+                                "@context": "https://schema.org",
+                                "@type": "BreadcrumbList",
+                                "itemListElement": [{
+                                    "@type": "ListItem",
+                                    "position": 1,
+                                    "name": "Home",
+                                    "item": "https://bytenlearn.in"
+                                }, {
+                                    "@type": "ListItem",
+                                    "position": 2,
+                                    "name": "Blog"
+                                }]
+                            },
+                            {
+                                "@context": "https://schema.org",
+                                "@type": "CollectionPage",
+                                "name": "ByteNLearn Blog",
+                                "description": "Explore insights, tutorials, and industry news from the ByteNLearn team.",
+                                "url": "https://bytenlearn.in/blog"
+                            }
+                        ])
+                    }}
+                />
             </Head>
 
             <section className="pt-32 pb-20 md:pt-48 md:pb-32 bg-brand-white dark:bg-brand-black min-h-screen relative overflow-hidden">
