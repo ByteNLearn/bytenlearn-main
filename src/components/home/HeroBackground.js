@@ -1,5 +1,5 @@
 import { Canvas, useFrame } from '@react-three/fiber';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 function FloatingShape({ position, color, speed, scale }) {
     const mesh = useRef();
@@ -31,8 +31,38 @@ function Scene() {
 }
 
 export default function HeroBackground() {
+    const [shouldRender, setShouldRender] = useState(false);
+
+    useEffect(() => {
+        // Delay 3D rendering until after the page is idle (non-blocking)
+        // This ensures LCP and FCP complete first before the heavy 3D kicks in
+        if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+            requestIdleCallback(() => setShouldRender(true), { timeout: 3000 });
+        } else {
+            // Fallback: load after 2s
+            const timer = setTimeout(() => setShouldRender(true), 2000);
+            return () => clearTimeout(timer);
+        }
+    }, []);
+
+    if (!shouldRender) {
+        // Lightweight CSS-only animated placeholder while 3D loads
+        return (
+            <div className="absolute inset-0 overflow-hidden">
+                <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-brand-orange/5 blur-[80px] animate-pulse" />
+                <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-brand-pink/5 blur-[80px] animate-pulse" style={{ animationDelay: '0.5s' }} />
+            </div>
+        );
+    }
+
     return (
-        <Canvas camera={{ position: [0, 0, 5] }} dpr={[1, 2]}>
+        <Canvas
+            camera={{ position: [0, 0, 5] }}
+            dpr={1}
+            gl={{ antialias: false, powerPreference: 'low-power' }}
+            frameloop="demand"
+            performance={{ min: 0.5 }}
+        >
             <Scene />
         </Canvas>
     );

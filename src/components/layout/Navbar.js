@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
     { name: 'Home', href: '/' },
@@ -20,9 +19,19 @@ export default function Navbar() {
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 50);
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    // Prevent body scroll when mobile menu is open
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => { document.body.style.overflow = ''; };
+    }, [isOpen]);
 
     return (
         <>
@@ -47,7 +56,7 @@ export default function Navbar() {
             <nav className={`fixed top-[33px] left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'py-4 bg-brand-white/80 dark:bg-brand-black/80 backdrop-blur-md border-b border-brand-black/10 dark:border-brand-white/10 shadow-sm' : 'py-6 bg-transparent'}`}>
                 <div className="w-full md:container md:mx-auto px-6 flex justify-between items-center">
                     <Link href="/" className="flex items-center gap-2 text-2xl font-display font-bold uppercase tracking-tighter z-50">
-                        <Image src="/images/logo.png" alt="Bytenlearn Logo" width={48} height={48} className="rounded-full object-cover" />
+                        <Image src="/images/logo.png" alt="Bytenlearn Logo" width={48} height={48} className="rounded-full object-cover" priority />
                         <div>
                             Byten<span className="text-brand-orange">learn</span>
                         </div>
@@ -63,52 +72,41 @@ export default function Navbar() {
                         ))}
                     </div>
 
-                    {/* Mobile Toggle */}
-                    <button onClick={() => setIsOpen(!isOpen)} className="md:hidden z-50 relative w-8 h-6 flex flex-col justify-between">
-                        <motion.span animate={isOpen ? { rotate: 45, y: 10 } : { rotate: 0, y: 0 }} className="w-full h-[2px] bg-brand-black dark:bg-brand-white origin-left" />
-                        <motion.span animate={isOpen ? { opacity: 0 } : { opacity: 1 }} className="w-full h-[2px] bg-brand-black dark:bg-brand-white" />
-                        <motion.span animate={isOpen ? { rotate: -45, y: -10 } : { rotate: 0, y: 0 }} className="w-full h-[2px] bg-brand-black dark:bg-brand-white origin-left" />
+                    {/* Mobile Toggle — CSS-only animation, no framer-motion */}
+                    <button onClick={() => setIsOpen(!isOpen)} className="md:hidden z-50 relative w-8 h-6 flex flex-col justify-between" aria-label="Toggle menu">
+                        <span className={`w-full h-[2px] bg-brand-black dark:bg-brand-white origin-left transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-[2px]' : ''}`} />
+                        <span className={`w-full h-[2px] bg-brand-black dark:bg-brand-white transition-all duration-300 ${isOpen ? 'opacity-0 scale-x-0' : ''}`} />
+                        <span className={`w-full h-[2px] bg-brand-black dark:bg-brand-white origin-left transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-[2px]' : ''}`} />
                     </button>
 
-                    {/* Mobile Menu Overlay */}
-                    <AnimatePresence>
-                        {isOpen && (
-                            <motion.div
-                                initial={{ opacity: 0, x: '100%' }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: '100%' }}
-                                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                                className="fixed inset-0 bg-brand-white dark:bg-brand-black flex flex-col justify-center items-center gap-8 md:hidden z-40"
+                    {/* Mobile Menu Overlay — CSS transitions, no framer-motion */}
+                    <div className={`fixed inset-0 bg-brand-white dark:bg-brand-black flex flex-col justify-center items-center gap-8 md:hidden z-40 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'}`}>
+                        {navLinks.map((link, i) => (
+                            <div
+                                key={link.name}
+                                className={`transition-all duration-300 ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+                                style={{ transitionDelay: isOpen ? `${100 + i * 50}ms` : '0ms' }}
                             >
-                                {navLinks.map((link, i) => (
-                                    <motion.div
-                                        key={link.name}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.1 + i * 0.05 }}
-                                    >
-                                        <Link
-                                            href={link.href}
-                                            onClick={() => setIsOpen(false)}
-                                            className="text-4xl font-display font-bold hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-brand-orange hover:to-brand-pink transition-all"
-                                        >
-                                            {link.name}
-                                        </Link>
-                                    </motion.div>
-                                ))}
+                                <Link
+                                    href={link.href}
+                                    onClick={() => setIsOpen(false)}
+                                    className="text-4xl font-display font-bold hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-brand-orange hover:to-brand-pink transition-all"
+                                >
+                                    {link.name}
+                                </Link>
+                            </div>
+                        ))}
 
-                                {/* Mobile Contact Info */}
-                                <div className="mt-8 text-center space-y-4">
-                                    <p className="text-sm font-bold opacity-50 uppercase tracking-widest">Get In Touch</p>
-                                    <div className="flex flex-col gap-2 text-lg font-bold">
-                                        <a href="tel:+919837033948" className="hover:text-brand-orange">+91 9837033948</a>
-                                        <a href="tel:+918077897867" className="hover:text-brand-orange">+91 8077897867</a>
-                                        <a href="mailto:bytenlearn@gmail.com?subject=Enquiry from Website" className="hover:text-brand-orange">bytenlearn@gmail.com</a>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
+                        {/* Mobile Contact Info */}
+                        <div className="mt-8 text-center space-y-4">
+                            <p className="text-sm font-bold opacity-50 uppercase tracking-widest">Get In Touch</p>
+                            <div className="flex flex-col gap-2 text-lg font-bold">
+                                <a href="tel:+919837033948" className="hover:text-brand-orange">+91 9837033948</a>
+                                <a href="tel:+918077897867" className="hover:text-brand-orange">+91 8077897867</a>
+                                <a href="mailto:bytenlearn@gmail.com?subject=Enquiry from Website" className="hover:text-brand-orange">bytenlearn@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </nav>
         </>

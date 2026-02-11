@@ -1,18 +1,10 @@
-import { motion } from 'framer-motion';
-
 export default function About({ city = "Moradabad" }) {
     return (
         <section id="about" className="py-20 md:py-32 bg-brand-white dark:bg-brand-black relative overflow-hidden transition-colors duration-500">
             <div className="w-full md:container md:mx-auto px-0 md:px-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-                    <motion.div
-                        className="px-6 md:px-0"
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                    >
+                    <div className="px-6 md:px-0">
                         <h2 className="text-4xl md:text-6xl font-display font-bold mb-8 text-brand-black dark:text-brand-white">
                             We Are <span className="text-brand-orange">ByteNLearn</span>.
                         </h2>
@@ -35,7 +27,7 @@ export default function About({ city = "Moradabad" }) {
                                 <p className="font-bold uppercase tracking-widest text-sm text-brand-black/60 dark:text-brand-white/60">Global Projects</p>
                             </div>
                         </div>
-                    </motion.div>
+                    </div>
 
                     <div className="relative h-[400px] md:h-[600px] bg-brand-black/5 dark:bg-brand-white/5 rounded-2xl overflow-hidden perspective-container">
                         {/* Abstract visual representation instead of a generic stock photo */}
