@@ -76,7 +76,7 @@ export default function BlogPost({ blog, relatedBlogs }) {
                     }}
                 />
             </Head>
-            <div className="w-full h-[200px] md:h-[400px] relative z-10 mt-5 shadow-2xl">
+            <div className="w-full h-[200px] md:h-[400px] relative z-10 shadow-2xl mt-10">
                 <Image
                     src={blog.image}
                     alt={blog.title}

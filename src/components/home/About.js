@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-export default function About() {
+export default function About({ city = "Moradabad" }) {
     return (
         <section id="about" className="py-20 md:py-32 bg-brand-white dark:bg-brand-black relative overflow-hidden transition-colors duration-500">
             <div className="w-full md:container md:mx-auto px-0 md:px-6">
@@ -18,10 +18,10 @@ export default function About() {
                         </h2>
                         <div className="space-y-6 text-lg md:text-xl font-body opacity-80 text-brand-black dark:text-brand-white">
                             <p>
-                                Recognized as the <b className="text-brand-orange">Best Website & App Development Company in Moradabad</b>, we don't just write code; we architect experiences. Born from a desire to break the mold, we bring <span className="text-brand-pink font-bold">energy</span> and <span className="text-brand-pink font-bold">innovation</span> to every pixel.
+                                Recognized as the <b className="text-brand-orange">Best Website & App Development Company in {city}</b>, we don't just write code; we architect experiences. Born from a desire to break the mold, we bring <span className="text-brand-pink font-bold">energy</span> and <span className="text-brand-pink font-bold">innovation</span> to every pixel.
                             </p>
                             <p>
-                                As the <b className="text-brand-orange">No.1 Software Development Company in Moradabad</b>, our team integrates cutting-edge 3D technologies with robust backend systems to deliver websites that leave a lasting impression.
+                                As the <b className="text-brand-orange">No.1 Software Development Company in {city}</b>, our team integrates cutting-edge 3D technologies with robust backend systems to deliver websites that leave a lasting impression.
                             </p>
                         </div>
 
