@@ -1,43 +1,18 @@
-import { Canvas, useFrame } from '@react-three/fiber';
-import { useRef } from 'react';
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 
-function FloatingShape({ position, color, speed, scale }) {
-    const mesh = useRef();
-    useFrame((state) => {
-        mesh.current.rotation.x += 0.005 * speed;
-        mesh.current.rotation.y += 0.01 * speed;
-        mesh.current.position.y += Math.sin(state.clock.elapsedTime * speed) * 0.001;
-    });
-
-    return (
-        <mesh ref={mesh} position={position} scale={scale}>
-            <icosahedronGeometry args={[1, 0]} />
-            <meshStandardMaterial color={color} wireframe transparent opacity={0.3} />
-        </mesh>
-    );
-}
-
-function HeroScene() {
-    return (
-        <>
-            <ambientLight intensity={1} />
-            <pointLight position={[10, 10, 10]} intensity={2} />
-            <FloatingShape position={[-4, 2, -5]} color="#FF5E00" speed={0.5} scale={1.5} />
-            <FloatingShape position={[4, -2, -6]} color="#FF2E63" speed={0.7} scale={2} />
-            <FloatingShape position={[0, 0, -10]} color="#ffffff" speed={0.3} scale={3} />
-        </>
-    );
-}
+// Dynamically import the 3D background with no SSR to reduce bundle size and improve TBT/LCP
+const HeroBackground = dynamic(() => import('./HeroBackground'), {
+    ssr: false,
+    loading: () => <div className="absolute inset-0 bg-transparent" /> // Lightweight placeholder
+});
 
 export default function Hero({ city = "Moradabad" }) {
     return (
         <section className="relative h-screen flex items-center justify-center overflow-hidden bg-brand-white dark:bg-brand-black">
             {/* 3D Background */}
             <div className="absolute inset-0 z-0">
-                <Canvas camera={{ position: [0, 0, 5] }}>
-                    <HeroScene />
-                </Canvas>
+                <HeroBackground />
                 {/* Gradient Overlay for Text Contrast */}
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-white/80 to-brand-white dark:via-brand-black/80 dark:to-brand-black z-0 pointer-events-none" />
             </div>
