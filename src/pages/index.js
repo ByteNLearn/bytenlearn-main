@@ -18,24 +18,24 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>ByteNLearn | Best Website, App & Software Development Company in Moradabad</title>
-        <meta name="description" content="Looking for the best website and app development company in Moradabad? ByteNLearn is the No.1 software development company in Moradabad offering premium corporate training, interns, and custom web solutions." />
-        <meta name="keywords" content="Best Website Development Company in Moradabad, Top App Development Company Moradabad, No.1 Software Development Company in Moradabad, Web Design Moradabad, ByteNLearn, Corporate Training, MERN Stack, Data Science" />
+        <title>ByteNLearn | Best Software, Web & App Development Company</title>
+        <meta name="description" content="Looking for an affordable software development company? ByteNLearn offers premium custom website, mobile app, ERP, CRM, and AI solutions. Hire expert developers today." />
+        <meta name="keywords" content="accounting software company, affordable software development company, ai software development, android app development company, app development company, app development cost, best it company, billing software company, business software solutions, cloud software development, crm software development, custom app development company, custom software development, ecommerce app development, ecommerce website development, enterprise software development, erp software development, full stack development company, hire app developer, hire software developer, hire web developer, hospital management software, hr management software, inventory management software, ios app development company, it company, it services company, laravel development company, mobile app development company, mobile application development services, node js development company, php development company, pos software provider, professional web development company, python development company, react js development company, saas development company, school management software, software company, software development agency, software development company, software development cost, software development outsourcing, software development services, startup software development company, top software development company, web application development, web designing company, web development company, website development company" />
         <meta name="author" content="ByteNLearn" />
         <link rel="canonical" href="https://bytenlearn.in" />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://bytenlearn.in/" />
-        <meta property="og:title" content="ByteNLearn | Best Website & Software Development Company in Moradabad" />
-        <meta property="og:description" content="ByteNLearn is the No.1 website and app development company in Moradabad. We deliver premium software solutions and corporate training." />
+        <meta property="og:title" content="ByteNLearn | Best Software, Web & App Development Company" />
+        <meta property="og:description" content="Looking for an affordable software development company? ByteNLearn offers premium custom website, mobile app, ERP, CRM, and AI solutions. Hire expert developers today." />
         <meta property="og:image" content="https://bytenlearn.in/images/logo.png" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://bytenlearn.in/" />
-        <meta property="twitter:title" content="ByteNLearn | Best Website & Software Development Company in Moradabad" />
-        <meta property="twitter:description" content="ByteNLearn is the No.1 website and app development company in Moradabad. We deliver premium software solutions." />
+        <meta property="twitter:title" content="ByteNLearn | Best Software, Web & App Development Company" />
+        <meta property="twitter:description" content="Looking for an affordable software development company? ByteNLearn offers premium custom website, mobile app, ERP, CRM, and AI solutions. Hire expert developers today." />
         <meta property="twitter:image" content="https://bytenlearn.in/images/logo.png" />
       </Head>
 
@@ -79,7 +79,7 @@ export default function Home() {
               "https://www.linkedin.com/company/bytenlearn"
             ],
             "priceRange": "$$",
-            "description": "ByteNLearn is the No.1 software, website, and app development company in Moradabad."
+            "description": "ByteNLearn is a premier software development company offering custom website, mobile app, ERP, CRM, and AI solutions."
           }
         `}
       </Script>
@@ -97,3 +97,4 @@ export default function Home() {
     </>
   );
 }
+  
